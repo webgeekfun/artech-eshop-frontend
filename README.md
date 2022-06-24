@@ -4,6 +4,14 @@
 
 ![artech-eshop](https://demo-api.geekfun.website/images/eshop1.png)
 
+这里是项目相关的文档：
+
+- [项目说明](design/00-项目说明.md)
+- [需求分析](design/01-需求分析.md)
+- [详细设计](design/02-详细设计.md)
+- [数据库设计](design/03-数据库设计.md)
+- [API 设计](design/04-API设计.md)
+
 本仓库是这四个版本的前端源代码：
 
 - 起步版：[eshop-starter](eshop-starter)

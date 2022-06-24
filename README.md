@@ -2,7 +2,7 @@
 
 “极客范(GeekFun)”是一套完整的可扩展Web开发项目范例，供广大学习者使用。通过开发这个项目，可以学习到完整的Web开发相关技术，掌握完整的Web开发工具栈。具体介绍请访问网站：<http://www.geekfun.website/>。
 
-![artech-eshop](https://demo-api.geekfun.website/images/eshop.png)
+![artech-eshop](https://demo-api.geekfun.website/images/eshop1.png)
 
 本仓库是这四个版本的前端源代码：
 
@@ -58,7 +58,7 @@ npm install
 npm run serve
 ```
 
-![artech-eshop](https://demo-api.geekfun.website/images/run.png)
+![artech-eshop](https://demo-api.geekfun.website/images/run1.png)
 
 
 ## 注意事项

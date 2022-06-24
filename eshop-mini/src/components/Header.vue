@@ -1,86 +1,94 @@
 <template>
-  <header>
-    <div class="container">
-      <nav class="header-wrap">
-        <div>
-          <img src="../assets/images/logo.png" alt="logo">
-          <ul>
-            <li v-for="item in navList" 
-              :key="item.enName"
-              :class="{'active': active == item.enName}"
-              @click="onClick(item.enName)"
+  <nav class="
+    navbar 
+    bg-white 
+    fixed-top 
+    navbar-expand-md 
+    navbar-light 
+    shadow"
+  >
+    <div class="container  align-items-center">
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarContent" 
+        aria-controls="navbarContent" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <span class="navbar-brand" href="#">
+        <img src="../assets/images/logo.png" alt="logo" style="width:70px;">
+      </span>
+      <span class="navbar-text d-flex align-items-center">
+        购物车<strong class="badge rounded-pill bg-primary">
+          {{cartCount}}
+          </strong>
+      </span>
+      <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto">
+            <router-link 
+              tag="li" 
+              class="nav-link" 
+              data-bs-toggle="collapse" 
+              data-bs-target=".collapse.show" 
+              to="/" 
+              exact
             >
-              {{item.name}}
-            </li>
-          </ul>
-        </div>
-        <p>购物车中商品数量：<strong>{{cartCount}}</strong></p>
-      </nav>
+              首页
+            </router-link>
+            <router-link 
+              tag="li" 
+              class="nav-link" 
+              data-bs-toggle="collapse" 
+              data-bs-target=".collapse.show" 
+              to="/products"
+            >
+              产品
+            </router-link>
+            <router-link 
+              tag="li" 
+              class="nav-link" 
+              data-bs-toggle="collapse" 
+              data-bs-target=".collapse.show" 
+              to="/orders"
+            >
+              订单
+            </router-link>
+            <router-link 
+              tag="li" 
+              class="nav-link" 
+              data-bs-toggle="collapse" 
+              data-bs-target=".collapse.show" 
+              to="/about"
+            >
+              关于我们
+            </router-link>
+        </ul>
+      </div>
     </div>
-  </header>
+  </nav>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      active: 'Home',
-      navList: [
-        {name: '首页', enName: 'Home'},
-        {name: '产品', enName: 'Products'},
-        {name: '订单', enName: 'Orders'},
-        {name: '联系我们', enName: 'Contact'}
-      ]
-    }
-  },
-  created() {
-    // 菜单标识
-    const name = this.$route.name
-    if (name.includes('Order'))
-      this.active = 'Orders'
-    else if (name.includes('Product'))
-      this.active = 'Products'
-    else 
-      this.active = name
-  },
   computed: {
     cartCount(){
       return this.$store.state.cart.products.length;
-    }
-  },
-  methods: {
-    onClick(enName) {
-      this.active = enName;
-      if (enName == 'Home') {
-        this.$router.push({
-          name: 'Home'
-        })
-        return
-      } 
-
-      // 除首页之外的
-      this.$router.push({
-        name: enName
-      })
     }
   }
 }
 </script>
 
 <style>
-.header-wrap {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header-wrap li.active {
-  color: #000;
-  border-bottom: 1px solid #888;
-}
-
-.router-link-exact-active.router-link-active {
-  color: #000;
-  border-bottom: 1px solid #888;
-}
+  nav li:hover,
+  nav li.router-link-active,
+  nav li.router-link-exact-active {
+    color: black !important;
+    cursor: pointer;
+    text-decoration: overline;
+  }
 </style>

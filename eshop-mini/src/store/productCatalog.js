@@ -1,14 +1,10 @@
-import shoppingApi from '../assets/js/shoppingApi'
+
 
 export default{
   namespaced: true,
 
   state:{
     products: []
-  },
-  getters:{
-    product: (state) => 
-      (productId) => state.products.find(_ => _.productId == productId),
   },
   mutations:{
      init(state, productCatalog){
@@ -31,6 +27,6 @@ export default{
           context.commit("loading/hide", '载入数据失败，请稍后再试', {root:true});
         }
       );
-    }
+    } 
   }
 };

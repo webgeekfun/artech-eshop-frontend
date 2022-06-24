@@ -1,5 +1,5 @@
 {
-  "name": "eshop",
+  "name": "GeekFun",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +7,7 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "bootstrap": "^5.0.0-beta3",
     "core-js": "^3.6.5",
     "vue": "^2.6.11",
     "vue-router": "^3.2.0",

@@ -1,27 +1,67 @@
 <template>
-  <div class="cart">
-    <div class="info">
-        <ul v-if="products.length > 0">
-          <li v-for="item in products" :key="item.productId">
-            <span>{{item.name}}</span>
-            <span>{{item.price}}</span>
-          </li>
-        </ul>  
-        <div v-else>购物车中暂无商品……</div>
+  <div 
+      id="cart" 
+      class="
+        border 
+        border-2 
+        border-secondary
+        rounded-start 
+        border-end-0 
+        bg-white 
+        position-fixed 
+        end-0 
+        p-3 
+        pe-0"
+      :style="{top: top+'px'}" 
+      @mousedown="movingStart"    
+      @touchstart="movingStart"
+      @mousemove.prevent="moving" 
+      @touchmove.prevent="moving"
+      @mouseup="movingEnd"        
+      @touchend="movingEnd"
+    >
+    <div class="shandow bg-light p-3 lh-lg">
+      <div v-if="products.length > 0">
+        <div v-for="item in products" :key="item.productId"
+          class="d-flex justify-content-between">
+          <span>{{item.name}}</span>
+          <span>{{item.price}} 元</span>
+        </div>
+      </div>  
+      <div v-else>购物车中暂无商品……</div>
     </div>
     
-    <div class="btn-info" v-if="products.length > 0">
-      <button @click="checkOut">确认下单</button>
-      <div>总价：{{totalPrice.toFixed(2)}}元</div> 
+    <div 
+      class="d-flex align-items-center mt-3 me-3" 
+      v-if="products.length > 0"
+    >
+      <button 
+        @click="checkOut" 
+        class="btn border-2 btn-primary btn-sm"
+      >
+        确认下单
+      </button>
+      <div class="ms-auto">
+        总价：{{totalPrice.toFixed(2)}} 元
+      </div> 
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  data(){
+    return{
+      isMoving : false,
+      top:400
+    }
+  },
   computed: {
     products() {
       return this.$store.state.cart.products;
+    },
+    cartCount(){
+      return this.$store.state.cart.products.length;
     },
     totalPrice() {
       return this.$store.getters['cart/totalPrice'];
@@ -30,57 +70,30 @@ export default {
   methods: {
     checkOut() {
       this.$store.dispatch('cart/checkOut');
+    },
+    movingStart(event){
+      this.from = event.pageY || event.touches[0].pageY;
+      this.isMoving = true;
+    },
+    moving(event){
+      if(this.isMoving){
+        const pageY = event.pageY || event.touches[0].pageY;
+        this.top += pageY - this.from;
+        this.from = pageY;
+      }
+    },
+    movingEnd(){
+      this.isMoving = false;
     }
   }
 }
 </script>
 
-<style scoped>
-.cart {
-  width: 250px;
-  min-height: 90px;
-  border: 2px solid #666;
-  border-right: 0;
-  padding: 10px;
-  border-radius: 5px 0 0 5px;
-  background: #fff;
-  font-size: 16px;
-  box-sizing: border-box;
-}
+<style>
+  #cart{
+    z-index:2000; 
+    width:300px;
+    cursor:move;
 
-.cart .info {
-  min-height: 70px;
-  border: 2px dashed #666;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.cart .info > div {
-  width: 100%;
-}
-
-.cart .info ul {
-  padding: 5px;
-}
-
-.cart .info ul li {
-  display: flex;
-  justify-content: space-between;
-  align-items:stretch;
-  line-height:2;
-}
-
-.cart .btn-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 5px;
-}
-
-.cart button {
-  padding: 4px 10px;
-  border: 2px solid #666;
-}
+  }
 </style>

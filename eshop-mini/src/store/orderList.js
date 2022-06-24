@@ -13,7 +13,7 @@ export default {
   },
   mutations: {
     add(state, {orderId, products, totalPrice}) {
-      state.orders.push({ 
+      state.orders.unshift({ 
         orderId, 
         orderTime: new Date().toLocaleString(), 
         payTime:'',
@@ -22,7 +22,6 @@ export default {
         totalPrice
       });
     },
-
     pay(state, order) {
       order.isPaid = true;
       order.payTime = new Date().toLocaleString();
@@ -33,11 +32,17 @@ export default {
       context.commit("loading/show", '正在支付，请稍候……', {root: true});
 
       shoppingApi.pay(
-        order.orderId,
+        order,
         // 成功操作
-        () => {
-          context.commit("pay", order);
-          context.commit("loading/hide", '支付成功', {root: true});
+        (orderFromServer) => {
+          //成功返回也需要校验结果
+          if(orderFromServer.orderId === order.orderId &&
+            orderFromServer.totalPrice === order.totalPrice){
+            context.commit("pay", order);
+            context.commit("loading/hide", '支付成功', {root: true});
+          }else{
+            context.commit("loading/hide", '支付失败，请稍后再试', {root: true});
+          }
         },
         // 失败操作
         () => {

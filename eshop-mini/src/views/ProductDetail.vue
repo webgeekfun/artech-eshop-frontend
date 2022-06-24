@@ -1,25 +1,60 @@
 <template>
   <div class="container">
-    <div class="detail">
-      <img :src="product.src" alt="">
-      <div>
-        <h1>{{product.name}}</h1>
-        <p>价格：{{product.price}}元</p>
+    <div v-if="product" class="row gy-4">
+      <div class="col-12 col-md-4">
+        <img 
+          :src="product.src"
+          class="img-fluid img-thumbnail"
+        >
+      </div>
+      <div class="col-12 col-md-4 d-flex flex-column">
+        <h3 class="mb-3 fw-bold">{{product.name}}</h3>
+        <p class="mb-3">价格：{{product.price}}元</p>
         <p class="info">{{product.description}}</p>
-        <button @click="addToCart">加入购物车</button>
+        <div class="d-grid mt-auto">
+          <button 
+            @click="addToCart" 
+            class="btn btn-outline-secondary btn-lg"
+          >
+            加入购物车
+          </button>
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
+import shoppingApi from '../assets/js/shoppingApi'
+import router from '../router/index'
+
 export default {
-  name: 'ProductDetail',
   data() {
     return {
-      product: this.$store.getters['productCatalog/product'](this.$route.params.productId)
+      product: null
     }
+  },
+  mounted(){
+    this.$store.commit("loading/show", '正在载入数据，请稍候……');
+    const productId = this.$route.params.productId;
+    shoppingApi.getProduct(
+      Number(productId),       
+      // 成功操作
+      (productFromServer) => {
+        this.$store.commit("loading/hide");
+        if(productFromServer)
+          this.product = productFromServer;
+        else{
+          router.push("/404");
+          //不改变URL为/404
+          history.replaceState({}, "", '/products/'+productId);
+        }
+      },
+      // 失败操作
+      () => {
+        this.$store.commit("loading/hide", '载入数据失败，请稍后再试');
+      }
+    )
   },
   methods: {
     addToCart() {
@@ -29,29 +64,3 @@ export default {
 }
 </script>
 
-<style scoped>
-.detail {
-  display: flex;
-  position: relative;
-  margin-bottom: 60px;
-}
-
-.detail img {
-  width: 350px;
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-right: 40px;
-  border-radius: 5px;
-}
-
-.detail button {
-  position: absolute;
-  bottom: 0;
-  padding: 15px 55px;
-}
-
-p.info {
-  margin-top: 25px;
-  width: 430px;
-}
-</style>

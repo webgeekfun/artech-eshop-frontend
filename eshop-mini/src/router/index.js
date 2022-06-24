@@ -5,6 +5,10 @@ import Products from '../views/Products.vue'
 import ProductDetail from '../views/ProductDetail.vue'
 import Orders from '../views/Orders.vue'
 import OrderDetail from '../views/OrderDetail.vue'
+import About from '../views/About.vue'
+import PageNotFound from '../views/PageNotFound.vue'
+
+import store from '../store'
 
 Vue.use(VueRouter)
 
@@ -26,12 +30,12 @@ const routes = [
     component: Products
   },
   {
-    path: '/product/detail/:productId',
+    path: '/products/:productId',
     name: 'ProductDetail',
     component: ProductDetail
   },
   {
-    path: '/order/detail/:orderId',
+    path: '/orders/:orderId',
     name: 'OrderDetail',
     component: OrderDetail
   },
@@ -41,17 +45,24 @@ const routes = [
     component: Orders
   },
   {
-    path: '/contact',
-    name: 'Contact',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/Contact.vue')
+    path: '/about',
+    name: 'About',
+    component: About
+  },
+  {
+    path: '/404',
+    name: '404',
+    component: PageNotFound
+  },
+  {
+    path: '*',
+    redirect: '/404'
   }
 ]
 
 const router = new VueRouter({
-  mode: 'history', //去掉url的#号
+  mode: 'history',
+  base: process.env.BASE_URL,
   routes
 })
 

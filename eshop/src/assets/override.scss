@@ -1,0 +1,193 @@
+/*
+* 对bootstrap v5.0的样式覆盖
+* https://getbootstrap.com/docs/5.0/getting-started/introduction/
+*/
+
+// 表单
+.form-control {
+  font-size: 14px;
+  color: $fontDefaultColor;
+  background-color: $bottomColor;
+  min-height: 60px;
+  border: 1px solid $bottomColor;
+  padding: 15px;
+
+  &[type=file] {
+    line-height: 46px;
+  }
+}
+
+.form-control:focus {
+  border-color: $bottomColor;
+  box-shadow: none;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: $bottomColor;
+}
+
+// checkbox的样式
+.form-check .form-check-input {
+  margin-left: 0;
+}
+
+.form-check-input:focus {
+  box-shadow: none;
+}
+
+// 面包屑导航
+.breadcrumbs-custom {
+  position: relative;
+  background: #f8f8f8;
+
+  ol {
+    padding: 20px 0;
+    font-size: 24px;
+    color: #000;
+  }
+
+  .breadcrumb {
+    margin-bottom: 0;
+  }
+}
+
+.phone {
+  .breadcrumbs-custom {
+    ol {
+      font-size: 16px;
+    }
+  }
+}
+
+// 文章中，编辑器
+.ql-editor {
+  min-height: 150px;
+}
+
+// h1-h6
+h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
+  color: $fontActiveColor;
+  cursor: pointer;
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+  font-weight: 200;
+  letter-spacing: .1em;
+}
+
+h4, .h4, h5, .h5, h6, .h6 {
+  font-weight: 300;
+  letter-spacing: .05em;
+}
+
+@media (min-width: 1200px) {
+  h1, .h1 {
+    font-size: 30px;
+  }
+
+  h2, .h2 {
+    font-size: 28px;
+  }
+
+  h3, .h3 {
+    font-size: 26px;
+    line-height: 1.35;
+  }
+
+  h4, .h4 {
+    font-size: 24px;
+    line-height: 1.43333;
+  }
+
+  h5, .h5 {
+    font-size: 22px;
+    line-height: 1.54167;
+  }
+
+  h6, .h6 {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+}
+
+h1, .h1 {
+  font-size: 28px;
+}
+
+h2, .h2 {
+  font-size: 26px;
+  line-height: 1.3;
+}
+
+h3, .h3 {
+  font-size: 24px;
+  line-height: 1.35;
+}
+
+h4, .h4 {
+  font-size: 22px;
+  line-height: 1.43333;
+}
+
+h5, .h5 {
+  font-size: 20px;
+  line-height: 1.54167;
+}
+
+h6, .h6 {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.pad {
+  h1, .h1 {
+		font-size: 26px;
+	}
+
+  h2, .h2 {
+		font-size: 24px;
+	}
+
+	h3, .h3 {
+		font-size: 22px;
+	}
+
+	h4, .h4 {
+		font-size: 20px;
+	}
+
+	h5, .h5 {
+		font-size: 18px;
+	}
+
+	h6, .h6 {
+		font-size: 16px;
+	}
+}
+
+.phone {
+  h1, .h1 {
+    font-size: 24px;
+
+  }
+
+  h2, .h2 {
+    font-size: 22px;
+  }
+
+  h3, .h3 {
+    font-size: 20px;
+  }
+
+  h4, .h4 {
+    font-size: 18px;
+  }
+
+  h5, .h5 {
+    font-size: 16px;
+  }
+
+  h6, .h6 {
+    font-size: 14px;
+  }
+}

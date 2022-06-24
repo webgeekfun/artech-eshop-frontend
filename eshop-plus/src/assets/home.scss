@@ -1,0 +1,118 @@
+.bg-image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &-home {
+    background-image: url(../assets/images/bg-image-8.jpg); 
+  }
+}
+
+.home-section-1.row {
+  margin-left: 0;
+  margin-right: 0;
+
+  > * {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+.home-section-2 {
+  p {
+    line-height: 1.5;
+    margin-top: 12px;
+  }
+
+  a {
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 32px;
+    padding: 10px 20px;
+    background: $btnColor;
+    color: $whiteColor;
+    border-radius: 2px;
+  }
+}
+
+.home-section-3 {
+  h2 {
+    color: $fontActiveColor;
+    margin-bottom: 50px;
+  }
+}
+
+.introduce {
+  &-icon {
+    span {
+      display: inline-block;
+      width: 2.4em;
+      height: 2.4em;
+      background-color: $bottomColor;
+      border-radius: 50%;
+      text-align: center;
+      color: $fontActiveColor;
+      font-size: 36px;
+      line-height: 2.33em;
+    }
+  }
+
+  &-title {
+    margin-top: 16px;
+    font-size: 18px;
+    line-height: 1.33;
+    color: $fontActiveColor;
+    font-weight: 400;
+  }
+
+  &-info {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+.home-section-4 {
+  h2 {
+    margin-bottom: 50px;
+    color: $fontActiveColor;
+  }
+
+  h5 {
+    margin: 25px 0 10px 0;
+  }
+
+  span {
+    font-size: 12px;
+  }
+}
+
+.pad {
+  h5 {
+    margin: 15px 0 5px 0;
+  }
+}
+
+.phone {
+  h5 {
+    margin: 10px 0 5px 0;
+  }
+}
+
+.home-section-5 {
+
+  h2 {
+    line-height: 60px;
+  }
+
+  input {
+    flex-grow: 1;
+    margin-right: 20px;
+  }
+
+  .button {
+    padding: 0px 25px;
+    margin-top: 0;
+    white-space: nowrap;
+    line-height: 60px;
+  }
+}

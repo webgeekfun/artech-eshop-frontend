@@ -1,0 +1,316 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 100px;
+  padding: 26px 15px;
+  background-color: #fff;
+  box-shadow: 0 2px 12px hsl(0deg 0% 53% / 10%);
+  transition: all .33s ease;
+
+  .search-box {
+    padding: 0 60px;
+
+    .search-wrap {
+      position: relative;
+      height: 60px;
+      width: 100%;
+
+      input {
+        padding: 0 60px;
+      }
+
+      .search-wrap-icon {
+        position: absolute;
+        top: 50%;
+        
+        &.bi-search {
+          margin-top: -15px;
+          left: 20px;
+          font-size: 20px;
+        }
+
+        &.bi-x {
+          margin-top: -22px;
+          right: 20px;
+          font-size: 28px;
+        }
+      }
+    }
+  }
+
+  .menu {
+    .menu-icon-left,
+    .indicator {
+      display: none;
+    }
+
+    .left-menu {
+      
+      .logo {
+        background: url('../assets/images/logo-125x47.png') no-repeat;
+        width: 125px;
+        height: 47px;
+        margin: 0 10px;
+      }
+
+      .menu-list {
+        li {
+          padding: 0 10px;
+          display: inline-block;
+          cursor: pointer;
+          
+          &.active a {
+            color: $fontActiveColor;
+          }
+        }
+      }
+    }
+
+    .right-menu {
+      .right-menu-horizontal {
+        li {
+          display: inline-block;
+          font-size: 24px;
+          padding: 0 12px;
+          cursor: pointer;
+          position: relative;
+
+          &:hover,
+          &.active,
+          span.active {
+            color: $fontActiveColor;
+          }
+        }
+
+        .user-logout-group {
+          display: inline-flex;
+          text-align: left;
+          width: 130px;
+
+          .userName {
+            font-size: 14px;
+            max-width: 80px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-left: 5px;
+          }
+
+          .logOut {
+            font-size: 14px;
+            margin-left: 5px;
+          }
+        }
+
+        .cart-num,
+        .wish-num {
+          position: absolute;
+          right: 5px;
+          top: 2px;
+          padding: 0 6px;
+          height: 19px;
+          line-height: 19px;
+          border-radius: 10px;
+          background-color: $numIconColor;
+          font-size: 12px;
+          color: $whiteColor;
+          transition: transform .6s ease-in-out;
+
+          &.wishActive,
+          &.cartActive {
+            transform: scale(2);
+          }
+        } 
+      }
+
+      .right-menu-vertical {
+        display: none;
+      }
+    }
+  }
+}
+
+.pad {
+  .header {
+    .menu {
+      .left-menu .menu-list li.nav-home {
+        display: none;
+      }
+
+      .right-menu .right-menu-horizontal .user-logout-group {
+        display: none;
+      }  
+    }
+  }  
+}
+
+.pad,
+.phone {
+  .header {
+    .menu {
+      .left-menu {
+        .logo {
+          background: url('../assets/images/favicon.png') no-repeat;
+          width: 35px;
+          height: 35px;
+          background-size: contain;
+          background-position: 50%;
+        }
+      }
+    }
+  }
+}
+
+.phone {
+  .header {
+    height: 60px;
+    padding: 0 15px;
+
+    .menu-wrap,
+    .menu {
+      height: 100%;
+    }
+
+    .menu {
+      .menu-icon-left {
+        display: block;
+        
+        span {
+          font-size: 28px;
+        }
+      }
+
+      .left-menu {
+        .menu-list {
+          display: none;
+          position: absolute;
+          top: 60px;
+          left: 0;
+          right: 0;
+          border-top: 1px solid #d2d2d7;
+          background: #fff;
+          padding: 0 25px;
+          transition: all 1s ease-out;
+
+          &.show{
+            display: block;
+          }
+
+          li {
+            display: block;
+            line-height: 44px;
+            border-top: 1px solid #d2d2d7;
+            cursor: pointer;
+            padding: 0;
+
+            &:first-child {
+              border-top: none;
+            }
+
+            a {
+              display: block;
+            }
+          }
+        }
+      }
+
+      .right-menu {
+        .right-menu-horizontal {
+          li {
+            display: none;
+      
+            &.cart-icon {
+              display: inline-block;
+              padding: 0;
+              span {
+                font-size: 28px;
+              }
+            }
+          }
+
+          .cart-num {
+            right: -5px;
+            top: 5px;
+          }
+        }
+    
+        .right-menu-vertical {
+          display: block;
+    
+          .menu-list {
+            display: none;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            border-top: 1px solid #d2d2d7;
+            background: #fff;
+            transition: all 1s ease-out;
+
+            &.show {
+              display: block;
+            }
+  
+            ul {
+              padding: 0 25px;
+  
+              li {
+                line-height: 44px;
+                border-top: 1px solid #d2d2d7;
+                position: relative;
+                cursor: pointer;
+  
+                &:first-child {
+                  border-top: none;
+                  height: 56px;
+                }
+  
+                input {
+                  padding: 10px 19px 10px 40px;
+                  min-height: 30px;
+                  margin-top: 10px;
+                }
+  
+                .search-wrap-icon {
+                  position: absolute;
+                  top: 0;
+                  left: 15px;
+                }
+  
+                i {
+                  font-size: 18px;
+                  margin-right: 5px;
+
+                  &.bi-x {
+                    font-size: 20px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+  
+      .indicator {
+        display: block;
+        position: absolute;
+        background: #fff;
+        height: 10px;
+        width: 10px;
+        transform: rotate(45deg);
+        top: -6px;
+        border-top: 1px solid #d2d2d7;
+        border-left: 1px solid #d2d2d7;
+  
+        &.right {
+          right: 24px;
+        }
+      }
+  
+      
+    }
+  }
+}

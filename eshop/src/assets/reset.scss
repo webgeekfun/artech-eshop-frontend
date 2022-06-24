@@ -1,0 +1,150 @@
+html {
+  overflow-y: scroll; //防止有滚动条和无滚动条抖动
+}
+
+body {
+  font-weight: 300;
+  font-family: Libre Franklin,Helvetica,Arial,sans-serif!important;
+  font-size: 18px;
+  line-height: 1.7;
+  padding-right: 0!important;
+}
+
+.pad {
+  font-size: 16px;
+}
+
+.phone {
+  font-size: 14px;
+}
+
+input[type=checkbox] {
+  margin-right: 5px;
+}
+
+a {
+  color: $fontDefaultColor;
+  text-decoration: none;
+
+  &:hover {
+    color: $fontActiveColor;
+  }
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-content-space-between {
+  justify-content: space-between;
+}
+
+ul, p, ol {
+  margin-bottom: 0;
+  padding-left: 0;
+}
+
+i {
+  font-style: normal;
+}
+
+li {
+  list-style: none;
+}
+
+.img-width-wrap img{
+  width: 100%;
+  height: auto;
+}
+
+.row {
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.row > * {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.row-50 {
+  margin-bottom: -50px;
+
+  > * {
+    margin-bottom: 50px;
+  }
+}
+
+.row-30 {
+  margin-bottom: -30px;
+
+  > * {
+    margin-bottom: 30px;
+  }
+}
+
+// 页面布局
+.section-sm {
+  padding: 40px 0;
+}
+
+.section-md {
+	padding: 50px 0;
+}
+.section-lg {
+	padding: 100px 0;
+}
+.section-xl {
+	padding: 120px 0;
+}
+
+.pad {
+	.section-lg {
+		padding: 80px 0;
+	}
+	.section-xl {
+		padding: 90px 0;
+	}
+}
+
+.pad,
+.phone {
+	.section-sm {
+		padding: 30px 0;
+	}
+}
+
+.phone {
+  .section-md,
+	.section-lg,
+	.section-xl {
+		padding: 60px 0;
+	}
+}
+
+.mb12 {
+  margin-bottom: 12px;
+}
+
+.mt50 {
+  margin-top: 50px;
+}
+
+.line {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: $bottomColor;
+}

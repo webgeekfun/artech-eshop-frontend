@@ -2,7 +2,7 @@
 
 “极客范(GeekFun)”是一套完整的可扩展Web开发项目范例，供广大学习者使用。通过开发这个项目，可以学习到完整的Web开发相关技术，掌握完整的Web开发工具栈。具体介绍请访问网站：<http://www.geekfun.website/>。
 
-![artech-eshop](images/eshop.png)
+![artech-eshop](https://demo-api.geekfun.website/images/eshop.png)
 
 本仓库是这四个版本的前端源代码：
 
@@ -35,7 +35,7 @@
 
 安装 node.js v14+，从官网下载并安装最新版即可。安装完成后，在命令行窗口中输入如下命令，检验是否安装成功。
 
-![artech-eshop](images/node.png)
+![artech-eshop](https://demo-api.geekfun.website/images/node.png)
 
 接着配置npm，通过下面的命令将npm配置成国内的源，能大大加快安装依赖包的速度。
 
@@ -50,7 +50,7 @@ cd eshop-mini #进入对应版本的项目目录
 npm install
 ```
 
-![artech-eshop](images/install.png)
+![artech-eshop](https://demo-api.geekfun.website/images/install.png)
 
 **第三步**：本机运行
 
@@ -58,7 +58,7 @@ npm install
 npm run serve
 ```
 
-![artech-eshop](images/run.png)
+![artech-eshop](https://demo-api.geekfun.website/images/run.png)
 
 
 ## 注意事项
@@ -67,4 +67,4 @@ npm run serve
 
 这个两个项目需要在localStorage中存储一些数据，同时运行会有冲突。因此，这两个项目切换运行的时候，需要先清除localStorage。清除方法如下，打开浏览器的控制台（快捷键`Ctrl+Shift+I`），然后按下图操作。
 
-![artech-eshop](images/clear.png)
+![artech-eshop](https://demo-api.geekfun.website/images/clear.png)
